@@ -1,0 +1,20 @@
+html {
+  background: #F8FAFC;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; 
+}
+
+
+
+
+.level-2 {
+  background: #889ee5;
+}
+
+.level-3 {
+  background: #e5b86b;
+}
