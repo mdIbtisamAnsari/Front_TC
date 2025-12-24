@@ -1,4 +1,6 @@
 import React, { useState } from 'react'
+import './login.css'
+
 
 const Login = () => {
   const [email, setEmail] = useState('')
@@ -10,11 +12,11 @@ const Login = () => {
   }
 
   return (
-    <div>
-      <h2>Login</h2>
+    <div className='formBody'>
+      <h2>LogIn</h2>
       <form onSubmit={handleSubmit}>
         <div>
-          <label>Email:</label>
+          <label>Regestered Email: </label>
           <input 
             type="email" 
             value={email} 
@@ -23,7 +25,7 @@ const Login = () => {
           />
         </div>
         <div>
-          <label>Password:</label>
+          <label>Password: </label>
           <input 
             type="password" 
             value={password} 

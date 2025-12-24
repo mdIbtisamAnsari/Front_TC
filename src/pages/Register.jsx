@@ -9,6 +9,11 @@ const Register = () => {
   const [password, setPassword] = useState('')
   const [confirmPassward, setCofirmPasswrd]= useState('')
 
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    // Handle registration logic here
+  }
+
   return (
     <div>
       <h2>Register</h2>

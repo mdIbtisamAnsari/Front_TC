@@ -1,0 +1,8 @@
+.formBody{
+    background: rgba(255, 166, 0, 0.488);
+    width: 85vw;
+    margin: 15vh auto;
+    padding: 10vw;
+    border: 1px solid #889ee5;
+    border-radius: 20px;
+}
