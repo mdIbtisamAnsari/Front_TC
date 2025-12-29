@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import './login.css'
+import { loginUser } from "../api/login.api.js"
 
 
 const Login = () => {
@@ -8,7 +9,7 @@ const Login = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    console.log('Login attempt:', { email, password })
+    loginUser(email, password) 
   }
 
   return (

@@ -1,13 +1,10 @@
-export const loginUser = async (email, password) => {
-  const response = await fetch('http://localhost:3000/api/v1/users/login', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    credentials: 'include',
-    body: JSON.stringify({ email, password })
-  })
+import axios from 'axios'
 
-  const data = await response.json()
-  return data
+axios.defaults.withCredentials = true
+
+export const loginUser = async (email, password) => {
+  const response = await axios.post('http://localhost:3000/api/v1/users/login', 
+    { email, password }
+  )
+  return response.data
 }
