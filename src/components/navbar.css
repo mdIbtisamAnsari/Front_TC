@@ -1,38 +1,55 @@
 @import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&display=swap');
 
-.navbar-logo-link{
+.navbar-logo-link {
   display: flex;
   flex-direction: row;
   align-items: center;
   text-decoration: none;
 }
+
 .navbar {
   background: #74e99f;
-  display:flex;
+  display: flex;
   flex-direction: row;
   align-items: center;
   font-family: "Merriweather", serif;
   min-height: 56px;
+  justify-content: space-between;
 }
-.logo{
-    border: 2px solid black;
-    border-radius: 50%;
-    width: clamp(2.5rem, 5vw, 3.5rem);
-    height: clamp(2.5rem, 5vw, 3.5rem);
-    margin : 0.5rem;
+
+.logo {
+  border: 2px solid black;
+  border-radius: 50%;
+  width: clamp(2.5rem, 5vw, 3.5rem);
+  height: clamp(2.5rem, 5vw, 3.5rem);
+  margin: 0.5rem;
 }
-.title{
-    font-size: clamp(1.0rem, 3vw, 1.2rem);
-    color: black;
-    font-weight: 500;
-    
+
+.title {
+  font-size: clamp(1.0rem, 3vw, 1.2rem);
+  color: black;
+  font-weight: 500;
+
+}
+
+.navbar-links-container  *{
+  align-items: center;
+  margin: 0 0.5rem;
+  text-decoration: none;
+  color: black;
+  font-weight: 700
+}
+
+.navbar-link-active{
+  color: #6b83f7;
 }
 
 @media (max-width: 768px) {
   .logo {
     display: none;
   }
-  .title{
+
+  .title {
     margin-left: 0.5rem;
   }
 }

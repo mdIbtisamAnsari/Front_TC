@@ -4,6 +4,7 @@ import './navbar.css'
 import { Link, NavLink } from 'react-router-dom'
 
 const NavBar = () => {
+
   return (
     <>
      <nav className='navbar'>
@@ -21,23 +22,26 @@ const NavBar = () => {
           Home
         </NavLink>
         <NavLink 
+          to='/portal' 
+          className={({ isActive }) => isActive ? 'navbar-link-active' : 'navbar-link'}
+        >
+          Portal
+        </NavLink>
+        <NavLink 
+          to='/profile' 
+          className={({ isActive }) => isActive ? 'navbar-link-active' : 'navbar-link'}
+        >
+          Profile
+        </NavLink>
+        <NavLink 
           to='/about' 
           className={({ isActive }) => isActive ? 'navbar-link-active' : 'navbar-link'}
         >
           About
         </NavLink>
-        <NavLink 
-          to='/contact' 
-          className={({ isActive }) => isActive ? 'navbar-link-active' : 'navbar-link'}
-        >
-          Contact
-        </NavLink>
-        <NavLink 
-          to='/login' 
-          className={({ isActive }) => isActive ? 'navbar-link-active' : 'navbar-link'}
-        >
-          Login
-        </NavLink>
+      </span>
+      <span className='navbar_profile'>
+        
       </span>
      </nav>
     </>
