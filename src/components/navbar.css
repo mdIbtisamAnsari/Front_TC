@@ -44,6 +44,14 @@
   color: #6b83f7;
 }
 
+.profile_photo{
+  border: 2px solid black;
+  border-radius: 50%;
+  width: clamp(2.5rem, 5vw, 3.5rem);
+  height: clamp(2.5rem, 5vw, 3.5rem);
+  margin: 0.5rem;
+}
+
 @media (max-width: 768px) {
   .logo {
     display: none;
