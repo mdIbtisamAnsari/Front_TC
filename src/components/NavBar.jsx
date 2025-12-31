@@ -70,14 +70,24 @@ const NavBar = () => {
         <span className='navbar_profile'>
           {user ? (
             <>
+              <span className='userName'>{user?.userName}</span>
               <img className='profile_photo' src={user?.profilePhoto} alt='profile_photo' />
-              {user?.userName}
             </>
           ) :
-            (<>
+            (<div className="new_user">
               <Link to='/login' className='navbar-link'>Login</Link>
               <Link to='/register' className='navbar-link'>Signup</Link>
-            </>)}
+            </div>
+            )}
+            <span className='menu'>
+              <img className='menu_icon' src={menu} />
+              <span className='menu_items'>
+                <div><Link to='/'>Home</Link></div>
+                <div><Link to='/portal'>Portal</Link></div>
+                <div><Link to='/profile'>Profile</Link></div>
+                <div><Link to='/about'>About</Link></div>
+              </span>
+            </span>
         </span>
       </nav>
     </>

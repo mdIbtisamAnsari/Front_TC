@@ -37,13 +37,26 @@
   margin: 0 0.5rem;
   text-decoration: none;
   color: black;
-  font-weight: 700
+  font-weight: 700;
+  font-size: clamp(0.75rem, 2.2vw, 1.2rem);
 }
 
 .navbar-link-active{
   color: #6b83f7;
 }
 
+.navbar_profile{
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+}
+
+.userName{
+  font-size: clamp(0.8rem, 2.5vw, 1rem);
+  color: rgb(0, 0, 0);
+  font-weight: 700;
+  margin-right: 0.5rem;
+}
 .profile_photo{
   border: 2px solid black;
   border-radius: 50%;
@@ -52,12 +65,61 @@
   margin: 0.5rem;
 }
 
-@media (max-width: 768px) {
+.new_user *{
+  font-size: clamp(0.8rem, 2.5vw, 1rem);
+  color: rgb(0, 0, 0);
+  font-weight: 700;
+  margin-right: clamp(0.25rem,2vw,1rem);
+  text-decoration: none;
+  padding: 0.5rem 0.8rem;
+  border-radius: 30px;
+  background: #6bd5e5;
+}
+
+.menu{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+
+.menu_icon{
+  height: 30px;
+  margin-right: 1rem;
+  display: none;
+}
+
+.menu_items{
+  display: none;
+}
+
+@media (max-width: 650px) {
   .logo {
     display: none;
   }
 
+  .navbar-links-container  *{
+    display: none;
+  }
+
+  .menu_icon{
+    display: flex;
+  }
+
+  .menu:hover {
+    .menu_items{
+      display: flex;
+      flex-direction: column;
+      position: absolute;
+      top: 56px;
+      right: 0;
+      background: #74e99f;
+      width: 100%;
+      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    }
+  }
+
   .title {
-    margin-left: 0.5rem;
+    margin-left: 0.75rem;
   }
 }
