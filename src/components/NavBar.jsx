@@ -79,17 +79,20 @@ const NavBar = () => {
               <Link to='/register' className='navbar-link'>Signup</Link>
             </div>
             )}
-            <span className='menu'>
-              <img className='menu_icon' src={menu} />
-              <span className='menu_items'>
-                <div><Link to='/'>Home</Link></div>
-                <div><Link to='/portal'>Portal</Link></div>
-                <div><Link to='/profile'>Profile</Link></div>
-                <div><Link to='/about'>About</Link></div>
-              </span>
+          <span className='menu'>
+            <input type="checkbox" style={{display: 'none'}} id="checkBox" />
+            <label htmlFor="checkBox"><img className='menu_icon' src={menu} /></label>
+            <label htmlFor="checkBox" id="overlay" ></label>
+            <span className='menu_items'>
+              <Link to='/'>Home</Link>
+              <Link to='/portal'>Portal</Link>
+              <Link to='/profile'>Profile</Link>
+              <Link to='/about'>About</Link>
             </span>
+          </span>
         </span>
       </nav>
+      <label htmlFor="checkBox" id="overlay" ></label>
     </>
   )
 }
