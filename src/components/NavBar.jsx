@@ -1,36 +1,14 @@
 import logo from '../assets/logo.png';
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import menu from '../assets/menu.svg';
 import './navbar.css';
 import { Link, NavLink, useLocation } from 'react-router-dom';
-import axios from 'axios'
-
-axios.defaults.withCredentials = true
-
+import { useUser } from '../hooks/useUser';
 
 const NavBar = () => {
   const location = useLocation()
-  const [user, setUser] = useState()
-  const isLoginPage = location.pathname === '/login'
-
-  useEffect(() => {
-    const currentUser = async () => {
-      await axios.get('http://localhost:3000/api/v1/users/userdetails')
-        .then((response) => {
-          setUser(response.data.data)
-        })
-        .catch(async (err) => {
-          await axios.post('http://localhost:3000/api/v1/users/getaccesstoken')
-            .then(async () => {
-              await axios.get('http://localhost:3000/api/v1/users/userdetails')
-                .then((userResponse) => {
-                  setUser(userResponse.data.data)
-                })
-            })
-        })
-    }
-    currentUser()
-  }, [])
+  const { user } = useUser()
+  const isLoginPage = location.pathname === '/login' || location.pathname === '/register'
 
   useEffect(() => {
     const menuLinks = document.querySelectorAll('.menu_items_link')
