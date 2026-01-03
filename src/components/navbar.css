@@ -151,7 +151,7 @@
     color: black;
   }
   .items_logo{
-    width: 60vw;
+    width: calc(70vw - 4rem);
   }
 
 }
