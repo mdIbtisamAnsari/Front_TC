@@ -31,6 +31,23 @@ const NavBar = () => {
     currentUser()
   }, [])
 
+  useEffect(() => {
+    const menuLinks = document.querySelectorAll('.menu_items_link')
+    const handleMenuClick = () => {
+      document.getElementById('checkBox').checked = false
+    }
+    
+    menuLinks.forEach(link => {
+      link.addEventListener('click', handleMenuClick)
+    })
+    
+    return () => {
+      menuLinks.forEach(link => {
+        link.removeEventListener('click', handleMenuClick)
+      })
+    }
+  }, [])
+
 
   return (
     <>
@@ -84,10 +101,11 @@ const NavBar = () => {
             <label htmlFor="checkBox"><img className='menu_icon' src={menu} /></label>
             <label htmlFor="checkBox" id="overlay" ></label>
             <span className='menu_items'>
-              <Link to='/'>Home</Link>
-              <Link to='/portal'>Portal</Link>
-              <Link to='/profile'>Profile</Link>
-              <Link to='/about'>About</Link>
+              <Link to='/' className='menu_items_link'>Home</Link>
+              <Link to='/portal' className='menu_items_link'>Portal</Link>
+              <Link to='/profile' className='menu_items_link'>Profile</Link>
+              <Link to='/about' className='menu_items_link'>About</Link>
+              <img className='items_logo' src={logo} />
             </span>
           </span>
         </span>

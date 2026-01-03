@@ -125,6 +125,7 @@
     z-index: 10;
     display: flex;
     transition: right 0.3s ease-out;
+    padding: 2rem;
   }
 
   #checkBox:checked~.menu_items {
@@ -142,5 +143,15 @@
     z-index: 2;
   }
 
-  
+  .menu_items *{
+    padding: 1rem;
+    box-sizing: border-box;
+    margin: 0 auto;
+    text-decoration: none;
+    color: black;
+  }
+  .items_logo{
+    width: 60vw;
+  }
+
 }
