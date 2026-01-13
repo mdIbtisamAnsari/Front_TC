@@ -8,7 +8,7 @@
 }
 
 .navbar {
-  background: #74e99f;
+  background: var(--primary-navbar-colour);
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -27,7 +27,7 @@
 
 .title {
   font-size: clamp(1.0rem, 3vw, 1.2rem);
-  color: black;
+  color: var(--text-colour);
   font-weight: 500;
 
 }
@@ -36,13 +36,13 @@
   align-items: center;
   margin: 0 0.5rem;
   text-decoration: none;
-  color: black;
+  color: var(--text-colour);
   font-weight: 700;
   font-size: clamp(0.75rem, 2.2vw, 1.2rem);
 }
 
 .navbar-link-active {
-  color: #6b83f7;
+  color: var(--link-active);
 }
 
 .navbar_profile {
@@ -53,7 +53,7 @@
 
 .userName {
   font-size: clamp(0.8rem, 2.5vw, 1rem);
-  color: rgb(0, 0, 0);
+  color: var(--text-colour);
   font-weight: 700;
   margin-right: 0.5rem;
 }
@@ -68,13 +68,13 @@
 
 .new_user * {
   font-size: clamp(0.8rem, 2.5vw, 1rem);
-  color: rgb(0, 0, 0);
+  color: var(--text-colour);
   font-weight: 700;
   margin-right: clamp(0.25rem, 2vw, 1rem);
   text-decoration: none;
   padding: 0.5rem 0.8rem;
   border-radius: 30px;
-  background: #6bd5e5;
+  background: var(--reristration-background);
 }
 
 .menu {
@@ -116,7 +116,7 @@
 
   .menu_items {
     position: fixed;
-    background: #74e99f;
+    background: var(--primary-navbar-colour);
     flex-direction: column;
     height: 100%;
     width: 70vw;
@@ -148,7 +148,7 @@
     box-sizing: border-box;
     margin: 0 auto;
     text-decoration: none;
-    color: black;
+    color: var(--text-colour);
   }
   .items_logo{
     width: calc(70vw - 4rem);
