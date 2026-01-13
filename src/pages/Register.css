@@ -1,0 +1,9 @@
+.registration-container{
+    border-radius: 10px;
+    background: var(--primary-colour);
+    margin: 10vw;
+    padding: 20px;
+}
+.registration-container * {
+    padding: 5px;
+}

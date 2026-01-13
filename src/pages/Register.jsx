@@ -1,5 +1,6 @@
 import {useState} from 'react'
-import userImg from '../assets/user.png'
+import './Register.css'
+import { registerUser } from "../api/register.api.js"
 
 const Register = () => {
   const [userName, setUserName] = useState('')
@@ -10,22 +11,19 @@ const Register = () => {
   const [confirmPassword, setConfirmPassword] = useState('')
   const [profilePhoto, setProfilePhoto] = useState(null)
 
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    if (password !== confirmPassword) {
-      alert('Passwords do not match')
-      return
+  const handleSubmit = async(e) => {
+      e.preventDefault()
+      await registerUser(userName, fullName, email, role, password, profilePhoto)
+      await navigate('/')
+      window.location.reload()
     }
-    // Handle registration logic here
-    console.log({ userName, fullName, email, role, password, profilePhoto })
-  }
 
   return (
-    <div>
+    <div className='registration-container'>
       <h2>Register</h2>
       <form className="registrationForm" onSubmit={handleSubmit}>
         <div>
-          <label>User Name: </label>
+          <label>User Name</label>
           <input 
             type="text"
             value={userName}
@@ -34,7 +32,7 @@ const Register = () => {
           />
         </div>
         <div>
-          <label>Full Name: </label>
+          <label>Full Name</label>
           <input 
             type="text"
             value={fullName}
@@ -43,7 +41,7 @@ const Register = () => {
           />
         </div>
         <div>
-          <label>Email: </label>
+          <label>Email</label>
           <input 
             type="email"
             value={email}
@@ -52,7 +50,7 @@ const Register = () => {
           />
         </div>
         <div>
-          <label>Role: </label>
+          <label>Role</label>
           <select 
             value={role}
             onChange={(e) => setRole(e.target.value)}
@@ -64,7 +62,7 @@ const Register = () => {
           </select>
         </div>
         <div>
-          <label>Profile Photo: </label>
+          <label>Profile Photo</label>
           <input 
             type="file"
             accept="image/*"
@@ -73,7 +71,7 @@ const Register = () => {
           />
         </div>
         <div>
-          <label>Password: </label>
+          <label>Password</label>
           <input 
             type="password"
             value={password}
@@ -82,7 +80,7 @@ const Register = () => {
           />
         </div>
         <div>
-          <label>Confirm Password: </label>
+          <label>Confirm Password</label>
           <input 
             type="password"
             value={confirmPassword}
