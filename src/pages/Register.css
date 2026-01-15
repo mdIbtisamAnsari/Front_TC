@@ -1,9 +1,45 @@
 .registration-container{
     border-radius: 10px;
     background: var(--primary-colour);
-    margin: 10vw;
+    margin: 0 10vw;
     padding: 20px;
+    align-items: center;
+    transform: translateY(1.5rem);
+}
+.registration-container h2 {
+    text-align: center;
+    margin-bottom: 15px;
 }
 .registration-container * {
     padding: 5px;
+}
+.registration-container form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form-element{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+.form-element input, .role select {
+    background: var(--background-colour);
+    border: none;
+    border-radius: 5px;
+    padding: 5px;
+    font-size: 17px;
+    
+}
+.role {
+    width: 100%;
+}
+.reg-but{
+    background-color: var(--secondary-colour);
+    padding: 10px 30px;
+    border: none;
+    border-radius: 5px;
+    font-size: 17px;
+    margin-top: 10px;
 }

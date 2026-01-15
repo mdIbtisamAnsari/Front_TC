@@ -1,6 +1,7 @@
 import {useState} from 'react'
 import './Register.css'
 import { registerUser } from "../api/register.api.js"
+import { verifyMail } from "../api/emailverification.api.js"
 
 const Register = () => {
   const [userName, setUserName] = useState('')
@@ -10,19 +11,25 @@ const Register = () => {
   const [password, setPassword] = useState('')
   const [confirmPassword, setConfirmPassword] = useState('')
   const [profilePhoto, setProfilePhoto] = useState(null)
+  const [emailVerified, setEmailVerified] = useState(false)
 
   const handleSubmit = async(e) => {
-      e.preventDefault()
-      await registerUser(userName, fullName, email, role, password, profilePhoto)
-      await navigate('/')
-      window.location.reload()
-    }
+    e.preventDefault()
+    await registerUser(userName, fullName, email, role, password, profilePhoto)
+    await navigate('/')
+    window.location.reload()
+  }
+  const handleVerification = async()=>{
+    const response = await verifyMail(email)
+    console.log(response);
+  }
+  
 
   return (
     <div className='registration-container'>
       <h2>Register</h2>
       <form className="registrationForm" onSubmit={handleSubmit}>
-        <div>
+        <div className='form-element'>
           <label>User Name</label>
           <input 
             type="text"
@@ -31,7 +38,7 @@ const Register = () => {
             required
           />
         </div>
-        <div>
+        <div className='form-element'>
           <label>Full Name</label>
           <input 
             type="text"
@@ -40,7 +47,7 @@ const Register = () => {
             required
           />
         </div>
-        <div>
+        <div className='form-element'>
           <label>Email</label>
           <input 
             type="email"
@@ -49,7 +56,7 @@ const Register = () => {
             required
           />
         </div>
-        <div>
+        <div className='role'>
           <label>Role</label>
           <select 
             value={role}
@@ -61,7 +68,7 @@ const Register = () => {
             <option value="tutor">Tutor</option>
           </select>
         </div>
-        <div>
+        <div className='form-element'>
           <label>Profile Photo</label>
           <input 
             type="file"
@@ -70,7 +77,7 @@ const Register = () => {
             required
           />
         </div>
-        <div>
+        <div className='form-element'>
           <label>Password</label>
           <input 
             type="password"
@@ -79,7 +86,7 @@ const Register = () => {
             required
           />
         </div>
-        <div>
+        <div className='form-element'>
           <label>Confirm Password</label>
           <input 
             type="password"
@@ -88,7 +95,8 @@ const Register = () => {
             required
           />
         </div>
-        <button type='submit'>Register</button>
+        <button type='submit' className='reg-but'>Register</button>
+        <button type='button' className='ver-but' onClick={handleVerification}>Verify Email</button>
       </form>
     </div>
   )
