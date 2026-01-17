@@ -18,6 +18,7 @@ const Register = () => {
   const [otp, setOtp] = useState('')
   const [inputOtp, setInputOtp] = useState('')
   const [emailVerifie, setEmailVerifie] = useState(false)
+  const [loading, setLoading] = useState(false)
 
   const [alreadyEmail, setAlreadyEmail] = useState(false)
   const [alreadyUserName, setAlreadyUserName] = useState(false)
@@ -33,8 +34,13 @@ const Register = () => {
       return
     }
     setEmailVerifie(true)
-    const response = await verifyMail(email)
-    setOtp(response.data)
+    try {
+      const response = await verifyMail(email)
+      setOtp(response.data)
+    } catch (error) {
+      setEmailVerifie(false)
+      if(error.status==410){setAlreadyEmail(true)}
+    }
   }
 
   const handleOTP = () => {
@@ -55,9 +61,13 @@ const Register = () => {
       return
     }
     try {
+      setLoading(true)
       await registerUser(userName, fullName, email, role, password, profilePhoto)
       navigate('/')
+      setLoading(false)
+      window.location.reload()
     } catch (error) {
+      setLoading(false)
       if(error.status==409){setAlreadyUserName(true)}
       if(error.status==410){setAlreadyEmail(true)}
     }
@@ -185,7 +195,7 @@ const Register = () => {
             required
           />
         </div>
-        <button type='submit' className='reg-but' disabled={!emailVerified}>Register</button>
+        <button type='submit' className='reg-but' disabled={!emailVerified}>{loading?(<span>Saving Your data</span>):(<span>Register</span>)}</button>
 
       </form>
     </div>

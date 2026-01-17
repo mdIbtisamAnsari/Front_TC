@@ -13,6 +13,7 @@ export const useUser = () => {
           setUser(response.data.data);
         })
         .catch(async (err) => {
+          
           await axios.post('/api/v1/users/getaccesstoken')
             .then(async () => {
               await axios.get('/api/v1/users/userdetails')
