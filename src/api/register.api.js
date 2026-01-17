@@ -9,7 +9,7 @@ export const registerUser = async ( userName, fullName, email, role, password, p
   formData.append('email', email)
   formData.append('role', role)
   formData.append('password', password)
-  formData.append('profilePhoto', profilePhoto)
+  formData.append('image', profilePhoto)
   
   const response = await axios.post('/api/v1/users/register', formData, {
     headers: {

@@ -1,10 +1,9 @@
 .registration-container{
     border-radius: 10px;
     background: var(--primary-colour);
-    margin: 0 10vw;
+    margin: 10px 10vw 0px;
     padding: 20px;
     align-items: center;
-    transform: translateY(1.5rem);
 }
 .registration-container h2 {
     text-align: center;
@@ -32,6 +31,18 @@
     font-size: 17px;
     
 }
+.button-box *{
+    margin: 0 5px;
+    background: var(--background-colour);
+    border: none;
+    border-radius: 5px;
+}
+.button-box *:disabled{
+    margin: 0 5px;
+    background: rgba(82, 82, 104, 0.552);
+    border: none;
+    border-radius: 5px;
+}
 .role {
     width: 100%;
 }
@@ -42,4 +53,11 @@
     border-radius: 5px;
     font-size: 17px;
     margin-top: 10px;
+    cursor: pointer;
+}
+.reg-but:disabled{
+    background: rgb(124, 127, 130);
+}
+input:disabled{
+    color: rgb(124, 127, 130);
 }
