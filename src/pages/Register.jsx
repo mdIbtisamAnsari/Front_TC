@@ -81,7 +81,10 @@ const Register = () => {
           <input
             type="text"
             value={userName}
-            onChange={(e) => setUserName(e.target.value)}
+            onChange={(e) => {
+              setUserName(e.target.value)
+              setAlreadyUserName(false)
+            }}
             required
           />
         </div>
@@ -99,7 +102,10 @@ const Register = () => {
           <input
             type="email"
             value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            onChange={(e) => {
+              setEmail(e.target.value)
+              setAlreadyEmail(false)
+            }}
             required
             disabled={emailVerifie}
           />
