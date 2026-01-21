@@ -3,6 +3,8 @@ import './Register.css'
 import { registerUser } from "../api/register.api.js"
 import { verifyMail } from "../api/emailverification.api.js"
 import { useNavigate } from 'react-router-dom'
+import { GrView } from "react-icons/gr";
+import { GrHide } from "react-icons/gr";
 
 const Register = () => {
   const [userName, setUserName] = useState('')
@@ -22,6 +24,10 @@ const Register = () => {
 
   const [alreadyEmail, setAlreadyEmail] = useState(false)
   const [alreadyUserName, setAlreadyUserName] = useState(false)
+  const [notValidEmail, setNotValidEmail] = useState(false)
+  const [incorrectOtp, setIncorrectOtp] = useState(false)
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
   const navigate = useNavigate()
 
@@ -29,8 +35,8 @@ const Register = () => {
 
   const handleVerification = async () => {
 
-    if (!email || !email.includes("@")) {
-      alert("Please enter valid email first")
+    if (!email.includes("@")) {
+      setNotValidEmail(true)
       return
     }
     setEmailVerifie(true)
@@ -39,7 +45,7 @@ const Register = () => {
       setOtp(response.data)
     } catch (error) {
       setEmailVerifie(false)
-      if(error.status==410){setAlreadyEmail(true)}
+      if (error.status == 410) { setAlreadyEmail(true) }
     }
   }
 
@@ -49,7 +55,7 @@ const Register = () => {
       setEmailVerifie(true)
     }
     else {
-      alert("Please enter correct OTP")
+      setIncorrectOtp(true)
       setEmailVerified(false)
     }
   }
@@ -57,7 +63,6 @@ const Register = () => {
   const handleSubmit = async (e) => {
     e.preventDefault()
     if (password !== confirmPassword) {
-      alert('Passwords do not match with confirm password')
       return
     }
     try {
@@ -68,8 +73,7 @@ const Register = () => {
       window.location.reload()
     } catch (error) {
       setLoading(false)
-      if(error.status==409){setAlreadyUserName(true)}
-      if(error.status==410){setAlreadyEmail(true)}
+      if (error.status == 409) { setAlreadyUserName(true) }
     }
   }
 
@@ -80,14 +84,20 @@ const Register = () => {
     setOtp('')
   }
 
+  const handleShowPassword = () => {
+    setShowPassword(!showPassword);
+  };
 
+  const handleShowConfirmPassword = () => {
+    setShowConfirmPassword(!showConfirmPassword);
+  };
 
   return (
     <div className='registration-container'>
       <h2>Register</h2>
       <form className="registrationForm" onSubmit={handleSubmit}>
         <div className='form-element'>
-          <label>User Name{alreadyUserName?(<span style={{color:"red"}}>Already exist</span>):""}</label>
+          <label>User Name{alreadyUserName ? (<span style={{ color: "red" }}>Already exist</span>) : ""}</label>
           <input
             type="text"
             value={userName}
@@ -108,13 +118,14 @@ const Register = () => {
           />
         </div>
         <div className='form-element'>
-          <label>Email{emailVerified ? (<span style={{ color: "green" }}>Verified</span>) : ""}{alreadyEmail?(<span style={{color:"red"}}>Already exist</span>):""}</label>
+          <label>Email{emailVerified ? (<span style={{ color: "green" }}>Verified</span>) : ""}{alreadyEmail ? (<span style={{ color: "red" }}>Already exist</span>) : ""}{notValidEmail ? (<span style={{ color: "red" }}>Enter a valid Email</span>) : ""}</label>
           <input
             type="email"
             value={email}
             onChange={(e) => {
               setEmail(e.target.value)
               setAlreadyEmail(false)
+              setNotValidEmail(false)
             }}
             required
             disabled={emailVerifie}
@@ -138,11 +149,15 @@ const Register = () => {
         </div>
 
         <div className='form-element'>
-          <label>Enter OTP</label>
+          <label>Enter OTP{incorrectOtp ? (<span style={{ color: 'red' }}>Incorrect OTP</span>) : ''}</label>
           <input
             type='text'
             value={inputOtp}
-            onChange={(e) => setInputOtp(e.target.value)}
+            onChange={(e) => {
+              setInputOtp(e.target.value)
+              setIncorrectOtp(false)
+            }
+            }
             required
             disabled={emailVerified}
           />
@@ -179,25 +194,39 @@ const Register = () => {
         </div>
         <div className='form-element'>
           <label>Password</label>
-          <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
+          <div className='pass'>
+            <input
+              type={showPassword ? "text" : "password"}
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
+            <span className="password_container" onClick={handleShowPassword}>
+              {showPassword ? 'Hide' : 'View'}
+            </span>
+          </div>
+
         </div>
         <div className='form-element'>
-          <label>Confirm Password</label>
-          <input
-            type="password"
-            value={confirmPassword}
-            onChange={(e) => setConfirmPassword(e.target.value)}
-            required
-          />
-        </div>
-        <button type='submit' className='reg-but' disabled={!emailVerified}>{loading?(<span>Saving Your data</span>):(<span>Register</span>)}</button>
+          <label>Confirm Password{(password != confirmPassword) ? (<span style={{ color: 'red' }}>Password do not matched</span>) : ''}</label>
+          <div className='pass'>
+            <input
+              type={showConfirmPassword ? "text" : "password"}
+              value={confirmPassword}
+              onChange={(e) => setConfirmPassword(e.target.value)}
+              required
+            />
+            <span className="password_container" onClick={handleShowConfirmPassword} >
+              {showConfirmPassword ? 'Hide' : 'View'}
+            </span>
+          </div>
 
+        </div>
+        <button type='submit' className='reg-but' disabled={!emailVerified}>{loading ? (<span>Saving Your data</span>) : (<span>Register</span>)}</button>
+        <br />
+        <div>Already have an account <a href='/login'>login</a></div>
       </form>
+
     </div>
   )
 }

@@ -6,6 +6,7 @@
   --reristration-background: #6bd5e5;
   --primary-colour:#889ee5;
   --secondary-colour: #efb146;
+  --link-colour: rgb(0, 234, 255);
 }
 
 .darkMode{
@@ -16,6 +17,7 @@
   --reristration-background: #465051;
   --primary-colour:#373737;
   --secondary-colour: #222121;
+  --link-colour:rgb(147, 147, 255);
 }
 
 html, body {
