@@ -7,6 +7,8 @@
   --primary-colour: #ffffff;
   --secondary-colour: #f59e0b;
   --link-colour: #2563eb;
+  --hero-gradient-start: #4f46e5;
+  --hero-gradient-end: #06b6d4;
 }
 
 .darkMode{
@@ -18,6 +20,8 @@
   --primary-colour: #1f2937;
   --secondary-colour: #d97706;
   --link-colour: #93c5fd;
+  --hero-gradient-start: #312e81;
+  --hero-gradient-end: #0e7490;
 }
 
 html, body {

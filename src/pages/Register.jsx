@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import './Register.css'
+import Loading from '../components/Loading.jsx'
 import { registerUser } from "../api/register.api.js"
 import { verifyMail } from "../api/emailverification.api.js"
 import { useNavigate } from 'react-router-dom'
@@ -93,9 +94,11 @@ const Register = () => {
   };
 
   return (
-    <div className='registration-container'>
-      <h2>Register</h2>
-      <form className="registrationForm" onSubmit={handleSubmit}>
+    <>
+      {loading && <Loading />}
+      <div className='registration-container'>
+        <h2>Register</h2>
+        <form className="registrationForm" onSubmit={handleSubmit}>
         <div className='form-element'>
           <label>User Name  {alreadyUserName ? (<span style={{ color: "red" }}>Already exist</span>) : ""}</label>
           <input
@@ -221,12 +224,13 @@ const Register = () => {
           </div>
 
         </div>
-        <button type='submit' className='reg-but' disabled={!emailVerified}>{loading ? (<span>Saving Your data</span>) : (<span>Register</span>)}</button>
+        <button type='submit' className='reg-but' disabled={!emailVerified}>{loading ? 'Registering...' : 'Register'}</button>
         <br />
-        <div>Already have an account <a href='/login'>login</a></div>
+        <div>Already have an account? <a href='/login'>login</a></div>
       </form>
 
     </div>
+    </>
   )
 }
 
