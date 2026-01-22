@@ -71,7 +71,7 @@ const NavBar = () => {
           {!isLoginPage && (
             user ? (
               <>
-                <span className='userName'>{user?.userName}</span>
+                <span className='userName'>{(user?.fullName).split(' ')[0]}</span>
                 <img className='profile_photo' src={user?.profilePhoto} alt='profile_photo' />
               </>
             ) :
