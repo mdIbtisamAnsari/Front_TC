@@ -3,7 +3,7 @@
   --primary-navbar-colour: #74e99f;
   --link-active: #6b83f7;
   --text-colour: rgb(0, 0, 0);
-  --reristration-background: #6bd5e5;
+  --registration-background: #6bd5e5;
   --primary-colour:#889ee5;
   --secondary-colour: #efb146;
   --link-colour: rgb(0, 234, 255);
@@ -14,7 +14,7 @@
   --primary-navbar-colour: #2a2a2a;
   --link-active: #8a9cff;
   --text-colour: #f0f0f0;
-  --reristration-background: #465051;
+  --registration-background: #465051;
   --primary-colour:#373737;
   --secondary-colour: #222121;
   --link-colour:rgb(147, 147, 255);
@@ -23,6 +23,7 @@
 html, body {
   min-height:100vh;
   background: var(--background-colour);
+  user-select: none;
 }
 
 * {

@@ -35,7 +35,7 @@
 
 .password_container {
     cursor: pointer;
-    background: var(--reristration-background);
+    background: var(--registration-background);
     border: none;
     border-radius: 5px;
     padding: 5px;
