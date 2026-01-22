@@ -97,7 +97,7 @@ const Register = () => {
       <h2>Register</h2>
       <form className="registrationForm" onSubmit={handleSubmit}>
         <div className='form-element'>
-          <label>User Name{alreadyUserName ? (<span style={{ color: "red" }}>Already exist</span>) : ""}</label>
+          <label>User Name  {alreadyUserName ? (<span style={{ color: "red" }}>Already exist</span>) : ""}</label>
           <input
             type="text"
             value={userName}
@@ -109,7 +109,7 @@ const Register = () => {
           />
         </div>
         <div className='form-element'>
-          <label>Full Name</label>
+          <label>Full Name  </label>
           <input
             type="text"
             value={fullName}
@@ -118,7 +118,7 @@ const Register = () => {
           />
         </div>
         <div className='form-element'>
-          <label>Email{emailVerified ? (<span style={{ color: "green" }}>Verified</span>) : ""}{alreadyEmail ? (<span style={{ color: "red" }}>Already exist</span>) : ""}{notValidEmail ? (<span style={{ color: "red" }}>Enter a valid Email</span>) : ""}</label>
+          <label>Email  {emailVerified ? (<span style={{ color: "green" }}>Verified</span>) : ""}{alreadyEmail ? (<span style={{ color: "red" }}>Already exist</span>) : ""}{notValidEmail ? (<span style={{ color: "red" }}>Enter a valid Email</span>) : ""}</label>
           <input
             type="email"
             value={email}
@@ -149,7 +149,7 @@ const Register = () => {
         </div>
 
         <div className='form-element'>
-          <label>Enter OTP{incorrectOtp ? (<span style={{ color: 'red' }}>Incorrect OTP</span>) : ''}</label>
+          <label>Enter OTP  {incorrectOtp ? (<span style={{ color: 'red' }}>Incorrect OTP</span>) : ''}</label>
           <input
             type='text'
             value={inputOtp}
@@ -172,13 +172,12 @@ const Register = () => {
           </button>
         </div>
         <div className='role'>
-          <label>Role</label>
+          <label>Role  </label>
           <select
             value={role}
             onChange={(e) => setRole(e.target.value)}
             required
           >
-            <option value="">Select Role</option>
             <option value="student">Student</option>
             <option value="tutor">Tutor</option>
           </select>
@@ -202,7 +201,7 @@ const Register = () => {
               required
             />
             <span className="password_container" onClick={handleShowPassword}>
-              {showPassword ? 'Hide' : 'View'}
+              {showPassword ? <GrView/> : <GrHide/>}
             </span>
           </div>
 
@@ -217,7 +216,7 @@ const Register = () => {
               required
             />
             <span className="password_container" onClick={handleShowConfirmPassword} >
-              {showConfirmPassword ? 'Hide' : 'View'}
+              {showConfirmPassword ? <GrView/> : <GrHide/>}
             </span>
           </div>
 
