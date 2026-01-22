@@ -1,8 +1,8 @@
 import { useState } from 'react'
-import './Register.css'
-import Loading from '../components/Loading.jsx'
-import { registerUser } from "../api/register.api.js"
-import { verifyMail } from "../api/emailverification.api.js"
+import '../css/Register.css'
+import Loading from '../../components/Loading.jsx'
+import { registerUser } from "../../api/register.api.js"
+import { verifyMail } from "../../api/emailverification.api.js"
 import { useNavigate } from 'react-router-dom'
 import { GrView } from "react-icons/gr";
 import { GrHide } from "react-icons/gr";

@@ -1,7 +1,7 @@
 import { useState } from 'react'
-import './login.css'
-import Loading from '../components/Loading.jsx'
-import { loginUser } from "../api/login.api.js"
+import '../css/login.css'
+import Loading from '../../components/Loading.jsx'
+import { loginUser } from "../../api/login.api.js"
 import { useNavigate } from 'react-router-dom'
 import { GrView } from "react-icons/gr";
 import { GrHide } from "react-icons/gr";
