@@ -4,24 +4,26 @@ import axios from 'axios';
 axios.defaults.withCredentials = true;
 
 export const useUser = () => {
-  const [user, setUser] = useState();
+  const [user, setUser] = useState(null);
 
   useEffect(() => {
     const currentUser = async () => {
-      await axios.get('/api/v1/users/userdetails')
-        .then((response) => {
-          setUser(response.data.data);
-        })
-        .catch(async (err) => {
-          
-          await axios.post('/api/v1/users/getaccesstoken')
-            .then(async () => {
-              await axios.get('/api/v1/users/userdetails')
-                .then((userResponse) => {
-                  setUser(userResponse.data.data);
-                });
-            });
-        });
+      try {
+        const response = await axios.get('/api/v1/users/userdetails');
+        setUser(response.data.data);
+      } catch (err) {
+        
+        if (err.response?.status == 450) return; // not logged in
+        
+        try {
+          await axios.post('/api/v1/users/getaccesstoken');
+          const userResponse = await axios.get('/api/v1/users/userdetails');
+          setUser(userResponse.data.data);
+        } catch (refreshError) {
+          console.error('Failed to refresh token:', refreshError);
+          setUser(null);
+        }
+      }
     };
     currentUser();
   }, []);

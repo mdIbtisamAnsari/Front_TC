@@ -1,7 +1,9 @@
 import { Link } from 'react-router-dom'
 import '../css/home.css'
 
-const Home = () => {
+const Home = ({ user }) => {
+  const getButtonText = () => user?.role === 'student' ? 'Find Tutors' : 'Find Students'
+  const getButtonTextTwo = () => user?.role === 'student' ? 'Become a Student' : 'Become a Tutor'
   return (
     <div className="home-container">
       <section className="hero-section">
@@ -11,8 +13,17 @@ const Home = () => {
             Connecting students with qualified tutors for personalized learning experiences
           </p>
           <div className="cta-buttons">
-            <Link to="/register" className="btn btn-primary">Find a Tutor</Link>
-            <Link to="/register" className="btn btn-secondary">Become a Tutor</Link>
+            {!user ? (
+              <>
+                <Link to="/register" className="btn btn-primary">Find a Tutor</Link>
+                <Link to="/register" className="btn btn-secondary">Become a Tutor</Link>
+              </>
+            ) : (
+              <>
+                <Link to="/portal" className="btn btn-primary">{getButtonText()}</Link>
+                <Link to="/profile" className="btn btn-secondary">{getButtonTextTwo()}</Link>
+              </>
+            )}
           </div>
         </div>
       </section>

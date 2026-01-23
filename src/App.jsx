@@ -1,4 +1,4 @@
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import Navbar from './components/NavBar.jsx';
 import Footer from './components/Footer.jsx';
 import Login from './pages/jsx/Login.jsx';
@@ -20,7 +20,7 @@ function App() {
         <Route path="/" element={<Home user={user} />} />
         <Route path="/login" element={<Login user={user} />} />
         <Route path="/register" element={<Register user={user} />} />
-        <Route path="/profile" element={user?.role === 'student' ? <StudentProfile user={user} /> : <TeacherProfile user={user} />} />
+        <Route path="/profile" element={!user ? <Navigate to="/login" replace /> : (user.role === 'student' ? <StudentProfile user={user} /> : <TeacherProfile user={user} />)} />
       </Routes>
       <Footer />
     </>
