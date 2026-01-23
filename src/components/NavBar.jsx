@@ -3,11 +3,10 @@ import { useEffect } from 'react';
 import menu from '../assets/menu.svg';
 import './navbar.css';
 import { Link, NavLink, useLocation } from 'react-router-dom';
-import { useUser } from '../hooks/useUser';
 
-const NavBar = () => {
+const NavBar = (params) => {
+  const { user } = params;
   const location = useLocation()
-  const { user } = useUser()
   const isLoginPage = location.pathname === '/login' || location.pathname === '/register'
 
   useEffect(() => {
@@ -71,7 +70,7 @@ const NavBar = () => {
           {!isLoginPage && (
             user ? (
               <>
-                <span className='userName'>{(user?.fullName).split(' ')[0]}</span>
+                <span className='userName'>{(user?.fullName)?.split(' ')[0]}</span>
                 <img className='profile_photo' src={user?.profilePhoto} alt='profile_photo' />
               </>
             ) :
