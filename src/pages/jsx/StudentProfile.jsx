@@ -1,8 +1,18 @@
 import React from 'react'
 
 const StudentProfile = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault()
+  }
   return (
-    <div>StudentProfile</div>
+    <>
+    <div>
+      <h2>Student Profile</h2>
+      <form onSubmit={handleSubmit}>
+
+      </form>
+    </div>
+    </>
   )
 }
 
