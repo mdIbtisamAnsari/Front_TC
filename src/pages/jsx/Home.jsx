@@ -3,7 +3,7 @@ import '../css/home.css'
 
 const Home = ({ user }) => {
   const getButtonText = () => user?.role === 'student' ? 'Find Tutors' : 'Find Students'
-  const getButtonTextTwo = () => user?.role === 'student' ? 'Become a Student' : 'Become a Tutor'
+  const getButtonTextTwo = () => user?.role === 'student' ? 'Post a requirement' : 'Become a Tutor'
   return (
     <div className="home-container">
       <section className="hero-section">

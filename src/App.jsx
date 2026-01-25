@@ -6,12 +6,17 @@ import Home from './pages/jsx/Home.jsx';
 import Register from './pages/jsx/Register.jsx';
 import StudentProfile from './pages/jsx/StudentProfile.jsx';
 import TeacherProfile from './pages/jsx/TeacherProfile.jsx';
+import Loading from './components/Loading.jsx';
 import './App.css';
 import { useUser } from './hooks/useUser.js';
 
 
 function App() {
-  const { user } = useUser();
+  const { user, loading } = useUser();
+
+  if (loading) {
+    return <Loading />;
+  }
 
   return (
     <>
