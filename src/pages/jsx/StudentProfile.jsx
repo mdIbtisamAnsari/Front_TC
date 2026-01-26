@@ -24,7 +24,7 @@ const StudentProfile = () => {
             {posts?.map((post) => (
 
                 <div key={post._id}>
-                    <h3>{post.studentID}</h3>
+                    <h3>{post.studentInfo.fullName}</h3>
                     <p>{post.studentQualification}</p>
                 </div>
             ))}
