@@ -4,6 +4,7 @@ import Footer from './components/Footer.jsx';
 import Login from './pages/jsx/Login.jsx';
 import Home from './pages/jsx/Home.jsx';
 import Register from './pages/jsx/Register.jsx';
+import CreateStudentPost from './pages/jsx/CreateStudentPost.jsx';
 import StudentProfile from './pages/jsx/StudentProfile.jsx';
 import TeacherProfile from './pages/jsx/TeacherProfile.jsx';
 import Loading from './components/Loading.jsx';
@@ -26,6 +27,7 @@ function App() {
         <Route path="/login" element={<Login user={user} />} />
         <Route path="/register" element={<Register user={user} />} />
         <Route path="/profile" element={!user ? <Navigate to="/login" replace /> : (user.role === 'student' ? <StudentProfile user={user} /> : <TeacherProfile user={user} />)} />
+        <Route path="/createpost" element={!user ? <Navigate to="/login" replace /> : (user.role === 'student' ? <CreateStudentPost user={user} /> : <__________ user={user} />)} />
       </Routes>
       <Footer />
     </>
