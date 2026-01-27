@@ -1,5 +1,7 @@
 import axios from 'axios'
 import { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
+import '../css/StudentProfile.css'
 
 
 const StudentProfile = () => {
@@ -8,7 +10,6 @@ const StudentProfile = () => {
         const fetchPosts = async () => {
             try {
                 const response = await axios.get('/api/v1/students/getposts')
-                console.log(response)
                 setPosts(response.data)
             } catch (error) {
                 console.error('Error fetching posts:', error)
@@ -19,16 +20,25 @@ const StudentProfile = () => {
 
     return (
         <>
-        <h2>Your Posts</h2>
-        <div>
-            {posts?.map((post) => (
-
-                <div key={post._id}>
-                    <h3>{post.studentInfo.fullName}</h3>
-                    <p>{post.studentQualification}</p>
-                </div>
-            ))}
-        </div>
+            <h3>Your Posts</h3>
+            <div className='post-container'>
+                {posts?.map((post) => (
+                    <div key={post._id} className='posts'>
+                        <div className='post-right'>
+                            {/* <img src={post.studentInfo.profilePhoto} className='post-image'/> */}
+                            <h3>{post.studentInfo.fullName}</h3>
+                            <p>{post.studentQualification}</p>
+                            <p>{post.selectedCategory}</p>
+                            <p>{post.selectedSubject}</p>
+                        </div>
+                        <div className='post-left'>
+                            <p>{post.requirement}</p>
+                            <p>{post.offer}</p>
+                        </div>
+                    </div>
+                ))}
+            </div>
+            <Link to='/createpost' className='btn btn-primary'>Create a New Post</Link>
         </>
     )
 }

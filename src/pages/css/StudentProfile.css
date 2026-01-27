@@ -1,0 +1,12 @@
+.posts{
+    background: var(--primary-colour);
+    width: fit-content;
+    padding: 1.5rem;
+    margin: 1rem;
+    display: flex;
+    border-radius: 30px;
+    
+    *{
+        margin: 0 20px;
+    }
+}
