@@ -1,6 +1,10 @@
-
-.post-container{
+.parent{
     display: flex;
+    flex-direction: column;
+    margin-top: 2rem;
+    *{
+        margin: auto;
+    }
 }
 .posts{
     background: var(--primary-colour);
@@ -11,13 +15,28 @@
     flex-direction: column;
     border-radius: 30px;
     width: clamp(250px, 24vw, 500px);
-    
+}
+
+.post{
+    display: flex;
+    flex-direction: column;
 }
 .post-top{
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-right: auto;
+}
+
+.post-bottom{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 15px;
+}
+.post-bottom > :first-child{
+    margin-right: 8px;
 }
 .post-image{
     width: clamp(50px,2.4vw,100px);

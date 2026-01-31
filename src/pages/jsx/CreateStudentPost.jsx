@@ -3,6 +3,9 @@ import { subjectList } from '../../assets/subjectList.js'
 import { countries } from '../../assets/countries.js'
 import '../css/CreateStudentPost.css'
 import axios from 'axios'
+import { useNavigate } from 'react-router-dom'
+
+const navigate = useNavigate()
 
 const CreateStudentPost = () => {
   const [selectedCategory, setSelectedCategory] = useState('')
@@ -16,9 +19,13 @@ const CreateStudentPost = () => {
   const [country, setCountry] = useState('')
   const [address, setAddress] = useState('')
 
+  const [loading, setLoading] = useState(false)
+  
+
   const handleSubmit = async(e) => {
     e.preventDefault()
     try {
+      setLoading(true)
       await axios.post('/api/v1/students/createpost', {
         selectedCategory,
         selectedSubject,
@@ -31,8 +38,13 @@ const CreateStudentPost = () => {
         country,
         address
       })
+      navigate('/profile')
+      window.location.reload()
     } catch (error) {
       console.error('Error creating post:', error)
+    } finally{
+      setLoading(false)
+
     }
   }
 
