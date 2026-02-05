@@ -1,46 +1,251 @@
-.parent{
+.profile-container {
+    min-height: 100vh;
+    padding: clamp(20px, 4vw, 40px);
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.profile-header {
+    text-align: center;
+    margin-bottom: clamp(30px, 6vw, 50px);
+    padding: clamp(20px, 4vw, 40px);
+    background: linear-gradient(135deg, var(--hero-gradient-start), var(--hero-gradient-end));
+    border-radius: clamp(12px, 3vw, 20px);
+    color: white;
+}
+
+.profile-title {
+    font-size: clamp(1.8rem, 5vw, 2.5rem);
+    margin-bottom: clamp(10px, 2vw, 15px);
+    font-weight: bold;
+}
+
+.profile-subtitle {
+    font-size: clamp(1rem, 3vw, 1.2rem);
+    opacity: 0.9;
+    margin-bottom: clamp(20px, 4vw, 30px);
+}
+
+.profile-stats {
     display: flex;
-    flex-direction: column;
-    margin-top: 2rem;
-    *{
-        margin: auto;
+    justify-content: center;
+    gap: clamp(20px, 4vw, 40px);
+    flex-wrap: wrap;
+}
+
+.stat-item {
+    text-align: center;
+}
+
+.stat-number {
+    font-size: clamp(1.5rem, 4vw, 2rem);
+    font-weight: bold;
+    display: block;
+}
+
+.stat-label {
+    font-size: clamp(0.9rem, 2.5vw, 1rem);
+    opacity: 0.8;
+}
+
+.posts-section {
+    margin-bottom: clamp(30px, 6vw, 50px);
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: clamp(20px, 4vw, 30px);
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.section-title-post {
+    font-size: clamp(1.5rem, 4vw, 2rem);
+    color: var(--text-colour);
+    margin: 0;
+}
+
+.post-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(clamp(300px, 45vw, 400px), 1fr));
+    gap: clamp(20px, 4vw, 30px);
+    margin-top: clamp(20px, 4vw, 30px);
+}
+
+.post-card {
+    background: var(--primary-colour);
+    border-radius: clamp(12px, 3vw, 16px);
+    padding: clamp(20px, 4vw, 25px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.post-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.post-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: clamp(15px, 3vw, 20px);
+    padding-bottom: clamp(10px, 2vw, 15px);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.post-image {
+    width: clamp(45px, 8vw, 60px);
+    height: clamp(45px, 8vw, 60px);
+    border-radius: 50%;
+    margin-right: clamp(12px, 3vw, 15px);
+    border: 2px solid var(--primary-navbar-colour);
+}
+
+.post-student-info h3 {
+    font-size: clamp(1.1rem, 3vw, 1.3rem);
+    margin-bottom: 5px;
+    color: var(--text-colour);
+}
+
+.post-date {
+    font-size: clamp(0.8rem, 2vw, 0.9rem);
+    color: var(--text-colour);
+    opacity: 0.6;
+}
+
+.post-content {
+    margin-bottom: clamp(15px, 3vw, 20px);
+}
+
+.post-details {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(10px, 2vw, 15px);
+    margin-bottom: clamp(15px, 3vw, 20px);
+}
+
+.post-detail-item {
+    background: var(--background-colour);
+    padding: clamp(8px, 2vw, 12px);
+    border-radius: clamp(6px, 1.5vw, 8px);
+    border-left: 3px solid var(--primary-navbar-colour);
+}
+
+.post-detail-label {
+    font-size: clamp(0.8rem, 2vw, 0.9rem);
+    font-weight: 600;
+    color: var(--primary-navbar-colour);
+    margin-bottom: 2px;
+}
+
+.post-detail-value {
+    font-size: clamp(0.9rem, 2.2vw, 1rem);
+    color: var(--text-colour);
+}
+
+.post-actions {
+    display: flex;
+    gap: clamp(8px, 2vw, 12px);
+    justify-content: flex-end;
+    padding-top: clamp(10px, 2vw, 15px);
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.btn {
+    padding: clamp(8px, 2vw, 12px) clamp(16px, 3vw, 20px);
+    border-radius: clamp(6px, 1.5vw, 8px);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: clamp(0.8rem, 2vw, 0.9rem);
+    transition: all 0.2s;
+    border: none;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.btn-primary {
+    background: var(--primary-navbar-colour);
+    color: white;
+}
+
+.btn-secondary {
+    background: var(--secondary-colour);
+    color: white;
+}
+
+.btn-danger {
+    background: #ef4444;
+    color: white;
+}
+
+.btn-outline {
+    background: var(--secondary-colour);
+    color: var(--text-colour);
+    border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.create-post-section {
+    text-align: center;
+    padding: clamp(30px, 6vw, 50px);
+    background: var(--primary-colour);
+    border-radius: clamp(12px, 3vw, 16px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.empty-state {
+    text-align: center;
+    padding: clamp(40px, 8vw, 60px);
+    color: var(--text-colour);
+    opacity: 0.7;
+}
+
+.empty-state h3 {
+    font-size: clamp(1.2rem, 3vw, 1.5rem);
+    margin-bottom: clamp(10px, 2vw, 15px);
+}
+
+.empty-state p {
+    font-size: clamp(0.9rem, 2.5vw, 1rem);
+    margin-bottom: clamp(20px, 4vw, 30px);
+}
+
+@media (max-width: 768px) {
+    .post-details {
+        grid-template-columns: 1fr;
+    }
+    
+    .section-header {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .post-actions {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    
+    .profile-stats {
+        justify-content: space-around;
     }
 }
-.posts{
-    background: var(--primary-colour);
-    width: fit-content;
-    padding: 1.5rem;
-    margin: 1rem;
-    display: flex;
-    flex-direction: column;
-    border-radius: 30px;
-    width: clamp(250px, 24vw, 500px);
-}
 
-.post{
-    display: flex;
-    flex-direction: column;
-}
-.post-top{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-right: auto;
-}
-
-.post-bottom{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    margin-top: 15px;
-}
-.post-bottom > :first-child{
-    margin-right: 8px;
-}
-.post-image{
-    width: clamp(50px,2.4vw,100px);
-    height: clamp(50px,2.4vw,100px);
-    border-radius: 50%;
-    margin-right: 10px;
+@media (max-width: 480px) {
+    .post-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .btn {
+        font-size: clamp(0.75rem, 3vw, 0.85rem);
+        padding: clamp(6px, 2vw, 10px) clamp(12px, 3vw, 16px);
+    }
 }
