@@ -154,7 +154,7 @@
     border-top: 1px solid rgba(0, 0, 0, 0.1);
 }
 
-.btn {
+.profile-container .btn-p {
     padding: clamp(8px, 2vw, 12px) clamp(16px, 3vw, 20px);
     border-radius: clamp(6px, 1.5vw, 8px);
     text-decoration: none;
@@ -168,27 +168,27 @@
     gap: 5px;
 }
 
-.btn:hover {
+.profile-container .btn-p:hover {
     transform: translateY(-1px);
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
-.btn-primary {
+.profile-container .btn-primary {
     background: var(--primary-navbar-colour);
     color: white;
 }
 
-.btn-secondary {
+.profile-container .btn-secondary {
     background: var(--secondary-colour);
     color: white;
 }
 
-.btn-danger {
+.profile-container .btn-danger {
     background: #ef4444;
     color: white;
 }
 
-.btn-outline {
+.profile-container .btn-outline {
     background: var(--secondary-colour);
     color: var(--text-colour);
     border: 1px solid rgba(0, 0, 0, 0.2);
@@ -244,7 +244,7 @@
         grid-template-columns: 1fr;
     }
     
-    .btn {
+    .profile-container .btn-p {
         font-size: clamp(0.75rem, 3vw, 0.85rem);
         padding: clamp(6px, 2vw, 10px) clamp(12px, 3vw, 16px);
     }

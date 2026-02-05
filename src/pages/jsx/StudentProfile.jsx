@@ -67,7 +67,7 @@ const StudentProfile = ({user}) => {
         <div className='profile-container'>
             {/* Profile Header */}
             <div className='profile-header'>
-                <h1 className='profile-title'>My Profile</h1>
+                <h1 className='profile-title'>{user.fullName}</h1>
                 <p className='profile-subtitle'>Manage your tutoring requests and track your progress</p>
                 
                 <div className='profile-stats'>
@@ -90,7 +90,7 @@ const StudentProfile = ({user}) => {
             <div className='posts-section'>
                 <div className='section-header'>
                     <h2 className='section-title-post'>Your Tutoring Requests</h2>
-                    <Link to='/createpost' className='btn btn-primary'>
+                    <Link to='/createpost' className='btn-p btn-primary'>
                         + Create New Post
                     </Link>
                 </div>
@@ -99,7 +99,7 @@ const StudentProfile = ({user}) => {
                     <div className='empty-state'>
                         <h3>No posts yet</h3>
                         <p>Create your first tutoring request to get started!</p>
-                        <Link to='/createpost' className='btn btn-primary'>
+                        <Link to='/createpost' className='btn-p btn-primary'>
                             Create Your First Post
                         </Link>
                     </div>
@@ -152,13 +152,13 @@ const StudentProfile = ({user}) => {
                                 <div className='post-actions'>
                                     <button 
                                         onClick={() => handleEdit(post._id)}
-                                        className='btn btn-outline'
+                                        className='btn-p btn-outline'
                                     >
                                         Edit
                                     </button>
                                     <button 
                                         onClick={() => handleDelete(post._id)}
-                                        className='btn btn-danger'
+                                        className='btn-p btn-danger'
                                     >
                                         Delete
                                     </button>
